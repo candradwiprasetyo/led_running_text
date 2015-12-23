@@ -289,7 +289,7 @@ function handleDragStop_<?= $r4['table_id']?>( event, ui) {
   
 </div>
 
-
+<!--
  <div class="footer_fixed"> 
 			<div class="morph-button morph-button-sidebar morph-button-fixed">
 			<button type="button" class="green_color_button"><?= $building_name?></button>
@@ -313,13 +313,14 @@ function handleDragStop_<?= $r4['table_id']?>( event, ui) {
 					</div>
 				</div>
 			</div>
-		</div><!-- morph-button -->
+		</div>
         
         <?php
         include 'color_item.php';
 		?>
         
         </div>
+    -->
        
    
 
@@ -405,6 +406,7 @@ function handleDragStop_<?= $r4['table_id']?>( event, ui) {
 								if( progress === 1 ) {
 									instance._stop(1);
 									clearInterval( interval );
+									alert("Data has been saved");
 								}
 							}, 200 );
 					}

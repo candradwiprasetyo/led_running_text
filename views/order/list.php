@@ -244,7 +244,7 @@ body{
 ?>
 
 
-
+<!--
  <div class="footer_fixed"> 
 			<div class="morph-button morph-button-sidebar morph-button-fixed ">
 			<button type="button" class="green_color_button"><?= $building_name?></button>
@@ -268,14 +268,14 @@ body{
 					</div>
 				</div>
 			</div>
-		</div><!-- morph-button -->
+		</div>
         
         <?php
         //include 'color_item.php';
 		?>
         
     </div>    
-       
+       -->
       
 		
 	
