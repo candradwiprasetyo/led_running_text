@@ -83,10 +83,14 @@
                                             <td><?= $no?></td>
                                                 <td><?= $row['value_name'] ?></td>
                                                 <td style="text-align:center;">
-                                             
+                                             <?php
+                                             if($row['value_id'] != 1){
+                                             ?>
                                                     <a href="master_value.php?page=form&id=<?= $row['value_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
                                                     <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['value_id']; ?>,'master_value.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
-
+                                                    <?php
+                                                }
+                                                    ?>
                                                 </td> 
                                             </tr>
                                             <?php

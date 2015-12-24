@@ -142,8 +142,12 @@ function get_last_id($id){
 }
 
 function read_last_id($id){
-	$query = mysql_query("select a.*, b.value_name as value2_name, c.value_name as value3_name,
-			d.colour_name as colour1_name, e.colour_name as colour2_name, f.colour_name as colour3_name
+	$query = mysql_query("select a.*, 
+			b.value_id as value2_id, b.value_name as value2_name, 
+			c.value_id as value3_id, c.value_name as value3_name,
+			d.colour_name as colour1_name, 
+			e.colour_name as colour2_name, 
+			f.colour_name as colour3_name
 			from transactions a
 			left join master_values b on b.value_id = a.value2
 			left join master_values c on c.value_id = a.value3

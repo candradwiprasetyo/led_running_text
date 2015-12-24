@@ -76,6 +76,8 @@ switch ($page) {
 		$row['table_name'] = get_table_name($table_id);
 		$row['table_ip'] = get_table_ip($table_id);
 
+		echo "Gate : ".$row['table_name']."<br>"; 
+		echo "IP address : ".$row['table_ip']."<br>";
 		
 		if($last_id){
 			$get_value = read_last_id($last_id);
@@ -89,16 +91,32 @@ switch ($page) {
 						$led_colour = $get_value['colour1_name']." | ".$get_value['colour2_name']." | ".$get_value['colour3_name'];
 					}
 					$led_value = strtoupper($led_value);
+
+
+		echo "Format Type : ".$row['type']."<br>";
+		
+		if($row['type'] == 1){
+			echo "Value 1 : ".$get_value['value1']."<br>";
+			echo "Value 2 : (".$get_value['value2_id'].") ".$get_value['value2_name']."<br>";
+			echo "Value 3 : (".$get_value['value3_id'].") ".$get_value['value3_name']."<br>";
+			echo "Colour 1 : ".$get_value['colour1_name']."<br>";
+			echo "Colour 2 : ".$get_value['colour2_name']."<br>";
+			echo "Colour 3 : ".$get_value['colour3_name'];
+		}else{
+			echo "Value : ".$led_value."<br>";
+			echo "Colour : ".$led_colour;
+		}
+
 		}else{
 			$row['type'] = '';
 			$led_value = '';
-		}
-		echo "Gate : ".$row['table_name']."<br>"; 
-		echo "IP address : ".$row['table_ip']."<br>";
-		echo "Format Type : ".$row['type']."<br>";
-		echo "Value : ".$led_value."<br>";
-		echo "Colour : ".$led_colour;
+		echo "Data not found";
+		}	
 
+		echo "<br><br>";
+
+		echo "<a href='order.php'>Kembali</a>";
+		
 		//include '../views/order/form_led.php';
 		//get_footer();
 	break;
