@@ -137,14 +137,14 @@ switch ($page) {
 			$colour3 = $_POST['i_colour3'];
 
 			$data = "'','".$table_id."', '$date', '$type', '$value1', 
-					'$value2', '$value3', '$colour1', '$colour2', '$colour3'";
+					'$value2', '$value3', '$colour1', '$colour2', '$colour3', '".$_SESSION['user_id']."'";
 		}else{
 			$value1 = $_POST['i_value_manual'];
 		
 			$colour1 = $_POST['i_colour_manual'];
 
 			$data = "'','".$table_id."', '$date', '$type', '$value1', 
-					'', '', '$colour1', '', ''";
+					'', '', '$colour1', '', '', '".$_SESSION['user_id']."'";
 		}
 
 		

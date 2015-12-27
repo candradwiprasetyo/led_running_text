@@ -121,6 +121,14 @@ if(!$_SESSION['login']){
                                     
                                     
                                         <div class="col-md-12">
+
+                                            <script type="text/javascript">
+                                            
+                                            var vInputString = "0000000020C90037:TEMP:data";
+                                            var vArray = vInputString.split(":");
+                                            var vRes = vArray[0] + ":" + vArray[2];
+
+                                            </script>
                                         
                                         <div class="form-group">
                                             <label>Gateway Name</label>
@@ -219,7 +227,7 @@ if(!$_SESSION['login']){
                                         </div>
                                         </div>
 
-                                        <div id="format2_frame" <?php if($row['type']==1 || $row['type']=""){ ?> style="display:none;"<?php } ?>>
+                                        <div id="format2_frame" <?php if($row['type']==1 || $row['type']==""){ ?> style="display:none;"<?php } ?>>
                                          <div class="form-group">
                                             <label>Gate Way Value</label>
                                            

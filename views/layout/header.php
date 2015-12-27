@@ -100,6 +100,7 @@ if(!$_SESSION['login']){
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="../index.php" class="logo" >
+              
              <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                

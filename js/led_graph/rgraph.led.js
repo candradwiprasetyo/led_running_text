@@ -20,7 +20,7 @@
     * @param object canvas The canvas object
     * @param array  data   The chart data
     */
-    RGraph.LED = function (id, text)
+    RGraph.LED = function (id, text, led_type, led_colour)
     {
         // Get the canvas and context objects
         this.id                = id;
@@ -83,6 +83,8 @@
         this.properties['chart.background']     = '#fff';
         this.properties['chart.dark']           = '#eee';
         this.properties['chart.light']          = '#f66';
+        this.properties['chart.led_type']             = led_type;
+        this.properties['chart.led_colour']           = led_colour;
 
         // Check for support
         if (!this.canvas) {
@@ -128,8 +130,56 @@
         // First clear the canvas, using the background colour
         RGraph.Clear(this.canvas, this.Get('chart.background'));
         
+        //var vInputString = this.text;
+        //var vArray = vInputString.split(" ");
+        //var vRes = vArray[0] + ":" + vArray[2];
+        if(this.Get('chart.led_type') == 1){
+            
+            var vInputString = this.text;
+            var vArray = vInputString.split(" ");
+            var ledtext1 = vArray[0];
+            var ledtext2 = vArray[1];
+            var ledtext3 = vArray[2];
+
+            // example
+            // 123 int x
+            // 012345678
+
+            leng1 = ledtext1.length;
+            lim1_1 = 0;                         // 0
+            lim1_2 = lim1_1 + leng1;            // 3
+
+            leng2 = ledtext2.length;            
+            lim2_1 = lim1_2 + 1;                // 4
+            lim2_2 = lim2_1 + leng2;            // 7                 
+
+            leng3 = ledtext3.length; 
+            lim3_1 = lim2_2 + 1;                // 8
+            lim3_2 = lim3_1 + leng3             // 9
+
+            // warna led
+            aColour = this.Get('chart.led_colour').split(",");
+            colour1 = aColour[0];
+            colour2 = aColour[1];
+            colour3 = aColour[2];
+
+            for (var l=0; l<this.text.length; l++) {
+                if(l>=lim1_1 && l < lim1_2){
+                    this.DrawLetter(this.text.charAt(l), l, colour1);
+                }else if(l>=lim2_1 && l <= lim2_2){
+                    this.DrawLetter(this.text.charAt(l), l, colour2);
+                }else{
+                    this.DrawLetter(this.text.charAt(l), l, colour3);
+                }
+            }
+
+            
+        }else{
+
         for (var l=0; l<this.text.length; l++) {
-            this.DrawLetter(this.text.charAt(l), l);
+            this.DrawLetter(this.text.charAt(l), l, this.Get('chart.led_colour'));
+        }
+
         }
         
         /**
@@ -145,9 +195,9 @@
     * @param string lights The lights to draw to draw
     * @param int    index  The position of the letter
     */
-    RGraph.LED.prototype.DrawLetter = function (letter, index)
+    RGraph.LED.prototype.DrawLetter = function (letter, index, led_colour)
     {
-        var light    = this.Get('chart.light');
+        var light    = led_colour;
         var dark     = this.Get('chart.dark');
         var lights   = (this.lights[letter] ? this.lights[letter] : [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]);
         var lwidth   = this.canvas.width / this.text.length;

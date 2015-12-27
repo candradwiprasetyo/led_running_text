@@ -6,6 +6,7 @@ if(!$_SESSION['login']){
 <!doctype html>
 <html lang="en">
 <head>
+	<link rel="icon" href="../img/favicon.ico" />
 <title>Gate Teluk Lamong System</title>
 <link rel="stylesheet" type="text/css" href="../css/style_table.css" />
 <!-- tooltip -->
@@ -104,6 +105,7 @@ body{
 					 $get_value = read_last_id($last_id);
 					 if($get_value['type'] == 2){
 					 	$led_value = $get_value['value1'];
+					 	$led_colour = $get_value['colour1_name'];
 					 }else{
 					 	if($get_value['value2']==1){
 					 		$get_value['value2_name'] = "|";
@@ -111,17 +113,23 @@ body{
 					 	if($get_value['value3']==1){
 					 		$get_value['value3_name'] = "|";
 					 	}
+					 	$led_colour = $get_value['colour1_name'].",".$get_value['colour2_name'].",".$get_value['colour3_name'];
 
 					 	$led_value = $get_value['value1']." ".$get_value['value2_name']." ".$get_value['value3_name'];
 					 }
 					 $led_value = strtolower($led_value);
+					 $led_type = $get_value['type'];
+					 $led_colour = strtolower($led_colour);
+					 
 				}else{
+					$led_type = "";
 					 $led_value = "      ";
+					 $led_colour = "";
 				}
 
 				
         	?>
-            var led<?= $r_led['table_id'] ?> = new RGraph.LED('myCanvas<?= $r_led['table_id'] ?>', ' <?= $led_value ?> ');
+            var led<?= $r_led['table_id'] ?> = new RGraph.LED('myCanvas<?= $r_led['table_id'] ?>', '<?= $led_value ?>', '<?= $led_type ?>', '<?= $led_colour?>');
             led<?= $r_led['table_id'] ?>.Set('chart.light', '#F8A31F');
             led<?= $r_led['table_id'] ?>.Set('chart.dark', '#555');
             led<?= $r_led['table_id'] ?>.Set('chart.background', '#333');

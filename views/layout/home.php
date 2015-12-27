@@ -54,7 +54,7 @@
                             <div class="box">
                              
                                 <div class="box-body2 table-responsive" style="padding:20px; text-align:center;">
-                                   <h2>Gateway Teluk Lamong</h2>
+                                   <h2>Gate Teluk Lamong</h2>
                                   <h4>System</h4>
 
                                 </div><!-- /.box-body -->

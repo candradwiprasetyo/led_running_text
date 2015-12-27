@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="icon" href="img/favicon.ico" />
         <title>Login Page  </title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
@@ -34,7 +35,9 @@
     <body >
 
         <div class="form-box" id="login-box">
-            <div class="header"><div class="bg-logo"><span style="font-size: 1.3em !important;"><strong>Gate Teluk Lamong</strong></span><br>System</div></div>
+            <div class="header">
+                <img src="img/logo-web.png" >
+                <div class="bg-logo"><span style="font-size: 1.3em !important;"><strong>Gate Teluk Lamong</strong></span><br>System</div></div>
             <form action="controllers/login.php?page=login" method="post">
                 <div class="body bg-white">
 
